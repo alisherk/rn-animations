@@ -1,21 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+//import { FlatlistImageSwiper } from './animation/flatlist-image-swiper/FlatlistImageSwiper';
+//import { Enlarger } from './animation/enlarger/Enlarger';
+//import { VerticalCardAnimator } from './animation/vertical-card-animator/VerticalCardAnimator';
+//import { VerticalCarousel } from './animation/VerticalCarousel';
+//import { AdvancedCarousel } from './animation/AdvancedCarousel';
+//import { AnimatedTabs } from './animation/AnimatedTabs';
+//import { ScrollableHeader } from './animation/scrollable-header/ScrollableHeader'
+//import { AnimatedRing } from './animation/AnimatedRing';
+import { SynchronizedFlatlist } from './animation/synchronized-flatlist/SynchronizedFlatlists';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  return <SynchronizedFlatlist/>  
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
