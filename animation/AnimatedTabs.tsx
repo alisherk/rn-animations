@@ -1,5 +1,5 @@
-import { StatusBar } from "expo-status-bar";
-import React from "react";
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 import {
   StyleSheet,
   Text,
@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   FlatList,
   Animated,
-} from "react-native";
+} from 'react-native';
 
 type ImageType = {
   [id: string]: string;
@@ -23,15 +23,15 @@ type ImageType = {
 
 const images: ImageType = {
   man:
-    "https://images.pexels.com/photos/3147528/pexels-photo-3147528.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    'https://images.pexels.com/photos/3147528/pexels-photo-3147528.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
   women:
-    "https://images.pexels.com/photos/2552130/pexels-photo-2552130.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    'https://images.pexels.com/photos/2552130/pexels-photo-2552130.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
   kids:
-    "https://images.pexels.com/photos/5080167/pexels-photo-5080167.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    'https://images.pexels.com/photos/5080167/pexels-photo-5080167.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
   skullcandy:
-    "https://images.pexels.com/photos/5602879/pexels-photo-5602879.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    'https://images.pexels.com/photos/5602879/pexels-photo-5602879.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
   help:
-    "https://images.pexels.com/photos/2552130/pexels-photo-2552130.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    'https://images.pexels.com/photos/2552130/pexels-photo-2552130.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
 };
 
 type Data = {
@@ -52,6 +52,7 @@ type IndicatorProps = {
   measures: Measure[];
   scrollX: Animated.Value;
 };
+const { width, height } = Dimensions.get('window');
 
 const Indicator = ({ measures, scrollX }: IndicatorProps) => {
   const inputRange = data.map((_, index) => {
@@ -71,11 +72,11 @@ const Indicator = ({ measures, scrollX }: IndicatorProps) => {
   return (
     <Animated.View
       style={{
-        position: "absolute",
+        position: 'absolute',
         height: 4,
         width: indicatorWidth,
         left: 0,
-        backgroundColor: "white",
+        backgroundColor: 'white',
         bottom: -10,
         transform: [{ translateX }],
       }}
@@ -91,10 +92,10 @@ const Tab = React.forwardRef<Ref, Props>(({ item }, ref) => {
     <View ref={ref}>
       <Text
         style={{
-          color: "white",
+          color: 'white',
           fontSize: 85 / data.length,
-          fontWeight: "bold",
-          textTransform: "uppercase",
+          fontWeight: 'bold',
+          textTransform: 'uppercase',
         }}
       >
         {item.title}
@@ -135,33 +136,32 @@ const Tabs = ({ data, scrollX, onItemPress }: TabProps) => {
     });
   }, []);
   return (
-    <View style={{ position: "absolute", top: 100, width }}>
+    <View style={{ position: 'absolute', top: 100, width }}>
       <View
         ref={containerRef}
         style={{
-          justifyContent: "space-evenly",
-          flexDirection: "row",
+          justifyContent: 'space-evenly',
+          flexDirection: 'row',
           flex: 1,
         }}
       >
         {data.map((item, index) => (
-        <TouchableOpacity onPress={() => onItemPress(index)}> 
-          <Tab
+          <TouchableOpacity
             key={item.title + Math.random()}
-            item={item}
-            ref={item.ref}
-          />
+            onPress={() => onItemPress(index)}
+          >
+            <Tab item={item} ref={item.ref} />
           </TouchableOpacity>
         ))}
       </View>
-      {measures.length > 0 && (
+      {measures.length && (
         <Indicator measures={measures} scrollX={scrollX} />
       )}
     </View>
   );
 };
 
-const { width, height } = Dimensions.get("window");
+
 
 export function AnimatedTabs() {
   const scrollX = React.useRef(new Animated.Value(0)).current;
@@ -191,7 +191,7 @@ export function AnimatedTabs() {
             <View style={{ width, height }}>
               <Image
                 source={{ uri: item.image }}
-                style={{ flex: 1, resizeMode: "cover" }}
+                style={{ flex: 1, resizeMode: 'cover' }}
               />
             </View>
           );
@@ -205,8 +205,8 @@ export function AnimatedTabs() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

@@ -7,10 +7,12 @@ import React from 'react';
 //import { AnimatedTabs } from './animation/AnimatedTabs';
 //import { ScrollableHeader } from './animation/scrollable-header/ScrollableHeader'
 //import { AnimatedRing } from './animation/AnimatedRing';
-import { SynchronizedFlatlist } from './animation/synchronized-flatlist/SynchronizedFlatlists';
+//import { SynchronizedFlatlist } from './animation/synchronized-flatlist/SynchronizedFlatlists';
+//import { AnimatedProgressBar } from './animation/AnimatedProgressBar';
+import SnapchatElementTransition from './animation/snapchat-shared-transition'
 
 export default function App() {
-  return <SynchronizedFlatlist/>  
+  return <SnapchatElementTransition/>
 }
 
 
