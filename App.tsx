@@ -9,10 +9,12 @@ import React from 'react';
 //import { AnimatedRing } from './animation/AnimatedRing';
 //import { SynchronizedFlatlist } from './animation/synchronized-flatlist/SynchronizedFlatlists';
 //import { AnimatedProgressBar } from './animation/AnimatedProgressBar';
-import SnapchatElementTransition from './animation/snapchat-shared-transition'
+//import SnapchatElementTransition from './animation/snapchat-shared-transition'
+//import { Navigator } from './animation/shared-card-transition/navigation';
+import { SpinTransition } from './animation/spin-transition';
 
 export default function App() {
-  return <SnapchatElementTransition/>
+  return <SpinTransition />
 }
 
 
